@@ -1,0 +1,404 @@
+/*
+* W&W - Futuristic Coming Soon Template
+* Build Date: March 2015
+* Author: Madeon08
+* Copyright (C) 2015 Madeon08
+* This is a premium product available exclusively on http://themeforest.net
+*/
+/*  TABLE OF CONTENTS
+    ---------------------------
+     (@Import only for SASS) & Reset
+     1. Basic style
+     2. Core & Components
+     3. Generic Design
+     4. Who Section
+     5. When Section
+     6. Where Section
+     7. Why Section
+     8. Media Queries
+*/
+/*
+* http://meyerweb.com/eric/tools/css/reset/ 
+* v2.0 | 20110126
+* License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ------------------------------------- */
+/* 1. Basic style ...................... */
+/* ------------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: Lato, "Helvetica Neue", "Lucida Grande", Arial, Verdana, sans-serif;
+  color: rgba(255,255,255,0.7);
+  background: #000;
+    
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body a {
+  color: #F1E7C0;
+  text-decoration: none;
+}
+body a:hover, body a:active, body a:focus {
+  outline: none !important;
+  text-decoration: none !important;
+  color: #F1E7C0;
+}
+
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button:hover, button:active, button:focus {
+  outline: none !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-pad-top {
+  padding-top: 0;
+}
+
+.no-pad-right {
+  padding-right: 0;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.display-none {
+  display: none;
+}
+
+.index9999 {
+  z-index: 9999 !important;
+}
+
+.overlay-prevent {
+  position: absolute;
+  z-index: 9999999;
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------------------------- */
+/* 2. Core & Components ................ */
+/* ------------------------------------- */
+
+.list-sections {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* Medium screen, Tablet... */
+  /* Desktop, Large Screen */
+}
+.list-sections .item-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-transition: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transform: translateY(100vh);
+  -ms-transform: translateY(100vh);
+  transform: translateY(100vh);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.list-sections .item-list .item-plus {
+  display: none;
+}
+.list-sections .item-list a.open-popup-link {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: inherit;
+}
+.list-sections .item-list.show-ready {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  border-bottom: 1px solid #2B2D35;
+}
+.list-sections .item-list.show-ready::after {
+  opacity: 0.40;
+}
+.list-sections .item-list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20vh;
+  width: 100%;
+  background: url("../images/food.jpg") no-repeat center center;
+  /* Background of the 1st column */
+  background-size: cover;
+}
+.list-sections .item-list:nth-of-type(2) {
+  top: 20vh;
+}
+.list-sections .item-list:nth-of-type(2)::after {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: url("../images/books.jpg");
+  background-size: cover;
+  /* Background of the 2nd column */
+}
+.list-sections .item-list:nth-of-type(3) {
+  top: 40vh;
+}
+.list-sections .item-list:nth-of-type(3)::after {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: url("../images/clothes.jpg") center;
+  background-size: cover;
+  /* Background of the 3rd column */
+}
+
+@media only screen and (min-width: 992px) {
+  .list-sections .item-list {
+    width: 33.33vw;
+    height: 100%;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: width 0s;
+    transition: width 0s;
+  }
+  .list-sections .item-list:nth-of-type(2) {
+    top: 0;
+    left: 33.33vw;
+  }
+  .list-sections .item-list:nth-of-type(3) {
+    top: 0;
+    left: 66.66vw;
+  }
+  .list-sections .item-list::after {
+    height: 100vh;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
+  }
+  .list-sections .item-list.show-ready {
+    opacity: 1;
+    border-bottom: none;
+    border-right: 1px solid #2B2D35;
+  }
+  .list-sections .item-list.show-ready::after {
+    opacity: 0.2;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .list-sections .item-list::after {
+    background-attachment: fixed;
+    -webkit-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+    /*-webkit-transform-origin: 50% 0px;
+    -ms-transform-origin: 50% 0px;
+    transform-origin: 50% 0px;*/
+    -webkit-transition: all 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+  }
+  .list-sections .item-list .item-plus {
+    position: absolute;
+    display: block;
+    background: rgba(255,255,255,0.9);
+    color: #777;
+    z-index: 2;
+    bottom: -40vh;
+    padding: 2em 10px;
+      font-weight: 300;
+    line-height: 25px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    -webkit-transition: all 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+  }
+
+  .list-sections .item-list .item-plus i {
+    color: #BABABA;
+  }
+  .list-sections .item-list a.open-popup-link:hover .item-plus {
+    bottom: 0;
+  }
+  .list-sections .item-list.show-ready {
+    border: none;
+  }
+  .list-sections .item-list.show-ready::after {
+    opacity: 0.3;
+  }
+  .no-touch .list-sections .item-list:hover::after {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+.item-title {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 12.5vh;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
+}
+ .list-sections .item-list a.open-popup-link:hover .item-title {
+    opacity: 0;
+      -webkit-transform: translateY(0%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  }
+
+.st0 {
+    fill: none;
+    stroke: #a871c2;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+}
+
+
+.ct_tt_menuholder .st0,
+.ct_tt_menuholder .st1 {
+    stroke-width: 4;
+    fill: #a871c2;
+}
+.st0.one{
+    stroke: #a871c2;
+}
+.st0.two{
+    stroke: #777;  
+}
+.st0.tree{
+    stroke: #ee776b;  
+}
+.st0.four{
+    stroke: #96a5bc;  
+}
+.st0.five{
+    stroke: #dbbb09;  
+}
+
+.item-title h2 {
+  font-size: 3rem;
+  line-height: 1.5;
+  font-weight: 300;
+    padding-left: 8px;
+  padding-right: 8px;
+}
+.item-title h2 span.point {
+  color: #FF1D4D;
+}
+.item-title p {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  padding: 0.5em 1.5em;
+  color: #BABABA;
+}
+@media only screen and (min-width: 992px) {
+  .item-title {
+    top: 50vh;
+    width: 20vw;
+    opacity: 0;
+    -webkit-transform: translateY(20px) translateX(0px);
+    -ms-transform: translateY(20px) translateX(0px);
+    transform: translateY(20px) translateX(0px);
+      
+  }
+  .show-ready .item-title {
+    opacity: 1;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 0.6s cubic-bezier(0.42, 0, 0.58, 1);
+  }
+}
+
+
